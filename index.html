@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensures no extra margin or padding */
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            text-align: center; /* Centers text inside the container */
+        }
+
+        /* Container styling */
+        .container {
+            display: flex;
+            flex-direction: column; /* Aligns elements in a vertical column */
+            justify-content: center; /* Centers content vertically inside container */
+            align-items: center; /* Centers content horizontally inside container */
+            padding: 20px;
+            max-width: 1200px; /* Max width of container */
+            width: 100%; /* Makes container take full width but not exceed max width */
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 36px;
+            color: cyan;
+            margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 18px;
+            color: lightgray;
+            margin-top: 10px;
+            margin-bottom: 20px; /* Adds space below paragraphs */
+        }
+
+        .paragraph-1 {
+            font-size: 20px;
+            color: lightblue;
+            font-weight: bold;
+            margin-bottom: 20px; /* Adds space below */
+        }
+
+        .paragraph-2 {
+            font-size: 18px;
+            color: lightgreen;
+            font-style: italic;
+        }
+
+        /* Button styling */
+        .button {
+            background-color: #0000fa;
+            color: lightgray;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto; /* Centers button */
+        }
+
+        .button:hover {
+            background-color: #00007d;
+        }
+
+        /* Image styling */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Ensures image is centered */
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-container">
+            <img src="IMG_3441.GIF"    
+            srcset="IMG_3441 (1).gif 768w, IMG_3441.GIF 1200w" 
+            sizes="(max-width: 768px) 100vw, 50vw"  
+            alt="Cute Yuuka">
+        </div>
+
+        <!-- Main Content Section -->
+        <h1>Welcome to My Fun Hayase Yuuka Website!</h1>
+        <p class="paragraph-1">This is my second website using VS Code.</p>
+        <p class="paragraph-2">If you love Hayase Yuuka, press the button!</p>
+
+        <!-- Button Section -->
+        <button class="button" onclick="showMessage()">Click Me Please!</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

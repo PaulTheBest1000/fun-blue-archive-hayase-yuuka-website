@@ -1,0 +1,121 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Helps with centering issues */
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: blueviolet;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 36px;
+    color: cyan;
+    line-height: 1.2;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 18px;
+    color: lightgray;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.paragraph-1 {
+    font-size: 20px;
+    color: lightblue;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.paragraph-2 {
+    font-size: 18px;
+    color: lightgreen;
+    font-style: italic;
+}
+
+/* Button styling */
+.button {
+    background-color: #0000fa;
+    color: lightgray;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto; /* Centers button */
+}
+
+.button:hover {
+    background-color: #00007d;
+}
+
+/* Responsive image styles */
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+/* Image container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .paragraph-1 {
+        font-size: 18px;
+    }
+
+    .paragraph-2 {
+        font-size: 16px;
+    }
+}
