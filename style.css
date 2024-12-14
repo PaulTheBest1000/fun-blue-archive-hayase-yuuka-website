@@ -31,7 +31,7 @@ body {
 }
 
 /* Heading styling */
-h1 {
+h2 {
     font-size: 36px;
     color: cyan;
     line-height: 1.2;
@@ -96,13 +96,36 @@ p {
     height: auto;
 }
 
+/* Basic styling for the time and calendar */
+#time, #calendar {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    color: #333;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Optional: Add a background color for the time */
+#time {
+    background-color: #dcdcdc;
+}
+
+/* Optional: Style the calendar */
+#calendar {
+    background-color: #e9e9e9;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
 
-    h1 {
+    h2 {
         font-size: 24px;
     }
 
