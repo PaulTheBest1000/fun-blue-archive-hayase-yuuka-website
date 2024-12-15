@@ -1,32 +1,27 @@
-// Function to update the time
-function updateTime() {
-    const timeElement = document.getElementById('time');
+// Function to display the current time
+function updateClock() {
+    const clockElement = document.getElementById('clock');
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    timeElement.innerHTML = `Current Time: ${hours}:${minutes}:${seconds}`;
-}
-
-// Function to update the calendar date
-function updateCalendar() {
+    const time = now.toLocaleTimeString(); // Get the local time
+    clockElement.textContent = `Current Time: ${time}`;
+  }
+  
+  // Function to display a simple calendar
+  function updateCalendar() {
     const calendarElement = document.getElementById('calendar');
     const now = new Date();
-    const day = now.getDate();
-    const month = now.getMonth() + 1; // months are 0-indexed
-    const year = now.getFullYear();
-    const dayOfWeek = now.toLocaleString('default', { weekday: 'long' });
-
-    calendarElement.innerHTML = `Today: ${dayOfWeek}, ${month}/${day}/${year}`;
-}
-
-// Update the time and calendar every second
-setInterval(updateTime, 1000);
-setInterval(updateCalendar, 1000);
-
-// Initialize the time and calendar display
-updateTime();
-updateCalendar();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = now.toLocaleDateString(undefined, options); // Local date with formatting
+    calendarElement.textContent = `Today's Date: ${date}`;
+  }
+  
+  // Update the time every second
+  setInterval(updateClock, 1000);
+  updateClock(); // Initialize immediately
+  
+  // Update the calendar (doesn't need frequent updates)
+  updateCalendar();
+  
 
 function showMessage() {
     alert('I LOVE HAYASE YUUKA!!!'); // Show alert with the message
