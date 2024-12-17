@@ -24,12 +24,36 @@
 
 </head>
 <body>
-    <!-- Time and Calendar at the Top -->
+
+    <!-- Time and Calendar Container -->
     <div id="time-calendar-container">
         <div id="clock">Loading time...</div>
         <div id="calendar">Loading calendar...</div>
+        <button id="open-modal-btn" class="quiz-btn">Start Yuuka Quiz</button>
     </div>
 
+<!-- Modal (Popup) -->
+<div id="quiz-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal-btn">&times;</span>
+        <h1>Quiz Game</h1>
+        <div id="question-container">
+            <p id="question">Who is Hayse Yuuka?</p>
+        </div>
+        <div id="answers-container">
+            <button class="answer" onclick="checkAnswer('Treasurer of Seminar')">Treasurer of Seminar</button>
+            <button class="answer" onclick="checkAnswer('100KG')">100KG</button>
+            <button class="answer" onclick="checkAnswer('I Do not know')">I Do not know</button>
+            <button class="answer" onclick="checkAnswer('Strict financial girl')">Strict financial girl</button>
+        </div>
+        <div id="score-container">
+            <p id="score">Score: 0</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
     <!-- Main Content Section -->
     <div class="container">
         <h2>Welcome to My Fun Hayase Yuuka Website!</h2>
@@ -42,22 +66,35 @@
             <img id="gif" src="IMG_3442.GIF" alt="Hayase Yuuka GIF">
         </div>
 
-        <div class="img-responsive image-container">
+        <div class="img-responsive image-container container">
             <img src="IMG_3441.GIF" alt="Cute Yuuka" class="image">
-            <div class="text">This is Yuuka from Blue Archive!</div>
+            <div class="text" style="color: cyan;">This is Yuuka from Blue Archive!</div>
         </div>
 
         <div class="img-responsive image-container">
             <img src="IMG_2490.GIF" alt="Peeking Yuuka" class="image">
-            <div class="text">Yuuka is peeking around and leaving!</div>
+            <div class="text" style="color: violet;">Yuuka is peeking around and leaving!</div>
         </div>
 
         <div class="img-responsive image-container">
             <img src="IMG_2432.GIF" alt="Angry Yuuka" class="image">
-            <div class="text">You angered Yuuka because you spend too much on impulsive purchases!</div>
+            <div class="text" style="color: blueviolet;">You angered Yuuka because you spend too much on impulsive purchases!</div>
+        </div>
+        <p style="color: cyan; background-color: blue; font-size: 18px;
+        font: bold; margin: 20px; padding: 10px;">More Yuuka Photos Below</p>
+
+        <div class="img-responsive image-container">
+            <img src="IMG_2496.GIF" alt="Yuuka with a dog" class="image">
+            <div class="text" style="color: blue;">Yuuka has a robot dog!</div>
+        </div>
+
+        <div class="img-responsive image-container">
+            <img src="IMG_2487.GIF" alt="Happy Yuuka" class="image">
+            <div class="text" style="color: violet;">Yuuka is happy!</div>
         </div>
     </div>
 
+    <!-- External JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>

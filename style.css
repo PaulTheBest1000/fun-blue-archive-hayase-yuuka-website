@@ -110,8 +110,8 @@ p {
 /* Time and Calendar Styling */
 #clock, #calendar {
     font-size: 1.2rem; /* Increase font size slightly */
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
+    color: blueviolet;
+    background-color: cyan;
     padding: 8px 12px;
     border-radius: 8px;
     margin: 5px;
@@ -233,4 +233,86 @@ p {
 /* Show the text when hovering over the image container */
 .image-container:hover .text {
     opacity: 1; /* Make text visible on hover */
+}
+
+/* style.css */
+
+/* Basic Styling */
+
+h1 {
+    color: cyan;
+}
+
+/* Button to open the modal */
+#open-modal-btn {
+    background-color: violet;
+    color: cyan;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#open-modal-btn:hover {
+    background-color: blueviolet;
+}
+
+/* The Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 100px;
+    width: 100%; /* Width */
+    height: 100%; /* Height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: blueviolet;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Game Styling */
+#answers-container button {
+    background-color: violet;
+    color: cyan;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#answers-container button:hover {
+    background-color: blueviolet;
+}
+
+#score-container {
+    margin-top: 20px;
+    font-size: 18px;
 }
