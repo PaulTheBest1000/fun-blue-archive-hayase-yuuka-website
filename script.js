@@ -18,7 +18,7 @@ const startOfflineTime = new Date();
 startOfflineTime.setHours(12, 0, 0, 0); // Set 12:00 PM
 
 const endOfflineTime = new Date();
-endOfflineTime.setHours(18, 0, 0, 0); // Set 6:00 PM
+endOfflineTime.setHours(19, 30, 0, 0); // Set 7:30 PM
 
 function checkOfflinePeriod() {
     const currentTime = new Date();
@@ -49,14 +49,34 @@ checkOfflinePeriod();
 // Optionally, check every minute
 setInterval(checkOfflinePeriod, 60000);
 
-// Time and Calendar Functionality
-function updateTimeAndCalendar() {
-  const now = new Date();
-  document.getElementById("clock").textContent = now.toLocaleTimeString();
-  document.getElementById("calendar").textContent = now.toLocaleDateString();
+// Function to update the time
+function updateTime() {
+    const timeElement = document.getElementById('time');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    timeElement.innerHTML = `Current Time: ${hours}:${minutes}:${seconds}`;
 }
 
-setInterval(updateTimeAndCalendar, 1000); // Update time and calendar every second
+// Function to update the calendar date
+function updateCalendar() {
+    const calendarElement = document.getElementById('calendar');
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth() + 1; // months are 0-indexed
+    const year = now.getFullYear();
+    const dayOfWeek = now.toLocaleString('default', { weekday: 'long' });
+
+    calendarElement.innerHTML = `Today: ${dayOfWeek}, ${month}/${day}/${year}`;
+}
+
+setInterval(updateTime, 1000); // Keep updating time every second
+setInterval(updateCalendar, 60000); // Update calendar every minute (60000 ms)
+
+// Initialize the time and calendar display
+updateTime();
+updateCalendar();
 
 // Initialize score and question index
 let currentScore = 0;
@@ -65,24 +85,24 @@ let currentQuestionIndex = 0;
 // Array of questions
 const questions = [
     {
-        question: "Who is Hayse Yuuka?",
+        question: "Hayse Yuuka is-",
         correctAnswer: "Treasurer of Seminar",
-        options: ["Treasurer of Seminar", "100KG", "I do not know", "Strict financial girl"]
-    },
-    {
-        question: "What is 6 x 4?",
-        correctAnswer: "24",
-        options: ["108", "-7", "24", "9"]
+        options: ["Treasurer of Seminar", "100KG", "I do not know", "Strict financial girl", "Cute girl"]
     },
     {
         question: "Why does PaulTheBest1000 love Yuuka?",
         correctAnswer: "Because she's cute",
-        options: ["Because she's a treasurer", "Because she's cute", "Because she's strict", "Because she's 100KG"]
+        options: ["Because she's a girl", "Because she's cute", "Because she's strict", "Because she's 100KG", "Because she's Yuuka"]
     },
     {
         question: "Do you love Yuuka too?",
         correctAnswer: "Yes",
-        options: ["No", "Undecided", "Maybe", "Yes"]
+        options: ["No", "Maybe", "Yes"]
+    },
+    {
+        question: "Yuuka is 100KG!",
+        correctAnswer: "False",
+        options: ["True", "False"]
     },
 ];
 
@@ -147,9 +167,12 @@ function loadQuestion() {
 function checkAnswer(selectedAnswer) {
     const currentQuestion = questions[currentQuestionIndex];
     
-    // If the answer is correct, increment the score
+    // Display feedback and update score if correct
     if (selectedAnswer === currentQuestion.correctAnswer) {
-        currentScore++;
+        currentScore += 25; // Add 25 points for a correct answer
+        alert("Correct! You earned 25 points.");
+    } else {
+        alert("Incorrect! You earned no points.");
     }
     
     // Update the score display
@@ -162,14 +185,70 @@ function checkAnswer(selectedAnswer) {
     loadQuestion();
 }
 
-// End the game and display final score
+// End the game and display the final score with a message and image
 function endGame() {
+    let message = ""; // Initialize a message variable
+    let imageSrc = ""; // Initialize a variable for the image source
+
+    // Determine the message and image based on the final score
+    if (currentScore === 0) {
+        message = "Yuuka is angry because you failed!";
+        imageSrc = "IMG_2432.GIF"; // Image for 0 points
+    } else if (currentScore === 25) {
+        message = "Yuuka is peeking and leaving because you almost failed!";
+        imageSrc = "IMG_2490.GIF"; // Image for 25 points
+    } else if (currentScore === 50) {
+        message = "Wow you tried! As a reward, Yuuka will encourage you to make it to 100 points!";
+        imageSrc = "IMG_2487.GIF"; // Image for 50 points
+    } else if (currentScore === 75) {
+        message = "You're so close! Yuuka is peeking at your progress!";
+        imageSrc = "IMG_3624.GIF"; // Image for 75 points
+    } else if (currentScore === 100) {
+        message = "Amazing! You got a perfect score and Yuuka is happy!";
+        imageSrc = "IMG_3442.GIF"; // Image for 100 points
+    }
+
+    // Update the score text
     scoreText.textContent = "Final Score: " + currentScore;
+
+    // Create an img element to display the image
+    const imageElement = document.createElement("img");
+    imageElement.src = imageSrc; // Set the image source based on the score
+    imageElement.alt = "Score Image"; // Set an alt attribute for accessibility
+    imageElement.style.width = "100%"; // Make the image responsive on mobile
+    imageElement.style.maxWidth = "500px"; // Limit the image width on larger screens
+    imageElement.style.height = "auto"; // Maintain aspect ratio
+
+    // Display the alert with the final score and the message
     setTimeout(() => {
-        alert("Game Over! Your final score is: " + currentScore);
-        modal.style.display = "none"; // Close the modal after the game ends
-    }, 500); // Wait for a moment before showing final score
-}
+        alert("Game Over! Your final score is: " + currentScore + "\n" + message);
+
+        // Append the image and message to a specific container 
+        const scoreMessageContainer = document.getElementById("score-message-container");
+
+        // Make the message 25% smaller by reducing font size
+        scoreMessageContainer.innerHTML = `<p style="text-align: center; font-size: 13.5px; padding: 10px;">${message}</p>`; // 25% smaller font size
+
+        // Make the image 25% smaller by scaling width
+        imageElement.style.width = '75%'; // Scale the image to 75% of its original size
+        imageElement.style.height = 'auto'; // Maintain aspect ratio
+
+        // Append the image to the container
+       scoreMessageContainer.appendChild(imageElement); // Add the image
+
+        // Set a timeout to hide the image and message after 10 seconds (10000 ms)
+        setTimeout(() => {
+            scoreMessageContainer.innerHTML = ""; // Clear the container
+            // Optionally, add a message like "Proceeding to the next step..." or similar
+            scoreMessageContainer.innerHTML = "<p>Thank you for playing the Yuuka quiz</p>";
+        }, 10000); // 10000 ms = 10 seconds (this can be adjusted)
+
+      // Close the modal after a short delay
+       setTimeout(() => {
+         modal.style.display = "none"; // Close the modal after the timeout
+        }, 2500); // Wait for 2.5 seconds to give time for the image and message to be shown
+      }, 500); // Wait for a moment before showing the final score
+ }
 
 function showMessage() {
     alert('PAULTHEBEST1000 LOVES HAYASE YUUKA!!!'); // Show alert with the message

@@ -108,7 +108,7 @@ p {
 }
 
 /* Time and Calendar Styling */
-#clock, #calendar {
+#time, #calendar {
     font-size: 1.2rem; /* Increase font size slightly */
     color: blueviolet;
     background-color: cyan;
@@ -141,7 +141,7 @@ p {
         font-size: 16px;
     }
 
-    #clock, #calendar {
+    #time, #calendar {
         font-size: 1.1rem; /* Slightly smaller font size for mobile */
         width: 90%; /* Allow the time and calendar to adjust to screen */
         max-width: 90%; /* Keep it from getting too wide */
@@ -180,7 +180,7 @@ p {
     }
 
     /* Adjust size of clock and calendar on larger screens */
-    #clock, #calendar {
+    #time, #calendar {
         font-size: 1.5rem; /* Larger font size for desktop */
         width: 40%; /* Make them narrower */
         max-width: 400px; /* Prevent stretching */
@@ -298,8 +298,8 @@ h1 {
 
 /* Game Styling */
 #answers-container button {
-    background-color: violet;
-    color: cyan;
+    background-color: cyan;
+    color: blueviolet;
     padding: 10px;
     margin: 10px;
     border: none;
@@ -309,10 +309,16 @@ h1 {
 }
 
 #answers-container button:hover {
-    background-color: blueviolet;
+    background-color: violet;
 }
 
 #score-container {
     margin-top: 20px;
     font-size: 18px;
+}
+
+#score-message-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
 }
