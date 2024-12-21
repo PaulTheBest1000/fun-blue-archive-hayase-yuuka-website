@@ -110,7 +110,7 @@ p {
 /* Time and Calendar Styling */
 #time, #calendar {
     font-size: 1.2rem; /* Increase font size slightly */
-    color: blueviolet;
+    color: violet;
     background-color: cyan;
     padding: 8px 12px;
     border-radius: 8px;

@@ -6,6 +6,12 @@
     <title>Fun Hayase Yuuka Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="IMG_3446.ico" type="image/x-icon">
+    <style>
+        #timer {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
 
     <!-- Open Graph tags --> 
     <meta property="og:title" content="Fun Hayase Yuuka Website" />
@@ -51,6 +57,44 @@
         </div>
     </div>
 </div>
+
+<script>
+    let score = 0;
+    const quizModal = document.getElementById('quiz-modal');
+    const openModalButton = document.getElementById('open-modal-btn');
+    const closeModalButton = document.getElementById('close-modal-btn');
+    const scoreElement = document.getElementById('score');
+
+    // Open Modal when clicking the Start Quiz button
+    openModalButton.addEventListener('click', () => {
+        quizModal.style.display = 'block';
+    });
+
+    // Close Modal when clicking the close button
+    closeModalButton.addEventListener('click', () => {
+        quizModal.style.display = 'none';
+    });
+
+    // Function to check the answer
+    function checkAnswer(answer) {
+        // Simple logic for demonstration purposes
+        const correctAnswer = "Strict financial girl"; // Define correct answer
+        if (answer === correctAnswer) {
+            score++;
+            scoreElement.textContent = `Score: ${score}`;
+            alert("Correct!");
+        } else {
+            alert("Incorrect.");
+        }
+    }
+
+    // To close modal if user clicks anywhere outside the modal
+    window.onclick = function(event) {
+        if (event.target === quizModal) {
+            quizModal.style.display = 'none';
+        }
+    };
+</script>
 
 </body>
 </html>
