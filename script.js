@@ -167,6 +167,23 @@ function loadQuestion() {
 function checkAnswer(selectedAnswer) {
     const currentQuestion = questions[currentQuestionIndex];
     
+    // Array of fun facts
+    const funFacts = [
+    "Yuuka is known for her strict financial habits!",
+    "Did you know Yuuka has been a treasurer for 3 years?",
+    "100KG? That's an interesting guess!",
+    "Yuuka's nickname in the group is 'Budget Master'.",
+    "She once balanced a seminar's budget perfectly without external help!"
+];
+    // Get sound elements
+    const correctSound = document.getElementById('correct-sound');
+    const wrongSound = document.getElementById('wrong-sound');
+    
+    // Function to show a random fun fact
+    function showFunFact() {
+    const fact = funFacts[Math.floor(Math.random() * funFacts.length)];
+    alert(`Fun Fact: ${fact}`);
+}
     // Display feedback and update score if correct
     if (selectedAnswer === currentQuestion.correctAnswer) {
         currentScore += 25; // Add 25 points for a correct answer
