@@ -170,9 +170,13 @@ function checkAnswer(selectedAnswer) {
     // Display feedback and update score if correct
     if (selectedAnswer === currentQuestion.correctAnswer) {
         currentScore += 25; // Add 25 points for a correct answer
+        correctSound.play(); // Play correct sound
         alert("Correct! You earned 25 points.");
+        showFunFact(); // Show fun fact for correct answers
     } else {
+        wrongSound.play(); // Play wrong sound
         alert("Incorrect! You earned no points.");
+        showFunFact(); // Show fun fact for wrong answers
     }
     
     // Update the score display
